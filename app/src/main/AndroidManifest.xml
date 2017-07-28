@@ -52,7 +52,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoTitle">
-        <activity android:name="com.dk.mp.main.splash.SplashActivity">
+        <activity android:name="com.dk.mp.main.splash.SplashActivity"
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

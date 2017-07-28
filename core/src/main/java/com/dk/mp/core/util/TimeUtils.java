@@ -479,4 +479,17 @@ public class TimeUtils {
 		return hehe;
 
 	}
+
+	/**
+	 * 当前月的前n月.
+	 * @param n 推前月份数
+	 * @return 月份
+	 */
+	public static String getBeforeMonth(int n) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.MONTH, -n);
+		String haha = sdf.format(calendar.getTime());
+		return haha;
+	}
 }

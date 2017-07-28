@@ -15,6 +15,7 @@ public class Jbxx extends RealmObject {
     private String departmentid;//部门id
     private String departmentname;//部门名称
     private String phones;
+    private String loginname;//登录用户
 
     public String getPrikey() {
         return prikey;
@@ -62,4 +63,11 @@ public class Jbxx extends RealmObject {
         this.phones = phones;
     }
 
+    public String getLoginname() {
+        return loginname;
+    }
+
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
+    }
 }

@@ -15,7 +15,7 @@ import com.google.gson.Gson;
  */
 public abstract class BaseFragment extends BaseLazyFragment {
     protected View mRootView;
-    private Gson gson;
+    public Gson gson;
 
     @Nullable
     @Override

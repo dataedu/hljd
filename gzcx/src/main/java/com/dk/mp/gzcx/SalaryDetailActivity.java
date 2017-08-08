@@ -47,7 +47,6 @@ public class SalaryDetailActivity extends MyActivity {
 			errorLayout.setErrorType(ErrorLayout.LOADDATA);
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("month", month);
-//			HttpUtil.getInstance().postJsonObjectRequest("http://yd.cjjs.cn/yd/apps/gzcx/list?uid=001&pwd=111111&month="+month, map, new HttpListener<JSONObject>() {
 			HttpUtil.getInstance().postJsonObjectRequest("apps/gzcx/list", map, new HttpListener<JSONObject>() {
 				@Override
 				public void onSuccess(JSONObject result) {

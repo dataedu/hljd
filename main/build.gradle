@@ -27,4 +27,11 @@ dependencies {
     compile project(':txl')
     compile project(':tzgg')
     compile project(':gzcx')
+    compile project(':ykt')
+    compile project(':tsg')
+    compile project(':xsjf')
+    compile project(':cwyd')
+    compile project(':xsxx')
+    compile project(':knsrd')
+    compile project(':gwsq')
 }

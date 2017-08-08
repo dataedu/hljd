@@ -22,6 +22,7 @@ public class ErrorLayout extends LinearLayout implements
     public static final int LOADDATA = 5;//加载数据
     public static final int SEARCHNODATA = 6;//搜索无数据
     public static final int SEARCHNODATA2 = 7; //背景不是白色
+    public static final int NOAPPLY = 8; //暂无申请
     private boolean clickEnable = true;//是否可以点击
     private final Context context;
     public ImageView img;//错误图片
@@ -143,6 +144,15 @@ public class ErrorLayout extends LinearLayout implements
                 tv.setTextColor(getResources().getColor(R.color.white));
                 clickEnable = true;
                 break;
+            case NOAPPLY:
+                mErrorState = SEARCHNODATA;
+                loadview.setVisibility(View.GONE);
+                img.setVisibility(View.VISIBLE);
+                tv.setVisibility(View.VISIBLE);
+                img.setImageResource(R.mipmap.noapply);
+                tv.setText(R.string.noapply);
+                clickEnable = true;
+                break;
             case HIDE_LAYOUT:
                 setVisibility(View.GONE);
                 break;
@@ -153,6 +163,10 @@ public class ErrorLayout extends LinearLayout implements
 
     public void setTextColor(int color){
         tv.setTextColor(color);
+    }
+
+    public void setTextv(String text){
+        tv.setText(text);
     }
 
     public void setOnLayoutClickListener(OnClickListener listener) {

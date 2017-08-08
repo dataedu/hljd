@@ -26,6 +26,7 @@
     <color name="tran">#50000000</color>
 
     <color name="black">#000000</color>
+    <color name="text_gary">#9C9C9C</color>
 
     <color name="bg">#ededed</color>
     <color name="view_bg">#ededed</color>
@@ -48,4 +49,8 @@
     <color name="press_more">#d5d1d1</color>
     <drawable name="touming">#00000000</drawable>
 
+    <color name="tab_selected">#2196f3</color>
+    <color name="tab_unselected">#212121</color>
+    <color name="item_line">#d9d9d9</color>
+    <color name="low_gray">#CFCFCF</color>
 </resources>

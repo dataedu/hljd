@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/view_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/core_title_back"/>
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:background="@color/white">
+                <include
+                    layout="@layout/core_line"/>
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/ripple_bg_while"
+                    android:padding="10dp"
+                    android:onClick="toPickKsrq">
+                    <TextView
+                        android:id="@+id/ksrq_title"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="开始时间"
+                        android:textColor="#212121"
+                        android:textSize="?attr/textSize15">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/ksrq_pick"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:textColor="#212121"
+                        android:textSize="?attr/textSize14"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:hint="必填">
+                    </TextView>
+                    <ImageView
+                        android:src="@mipmap/arrow_icon_xg"
+                        android:layout_width="?attr/image8"
+                        android:layout_height="?attr/image13"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
+                <include
+                    layout="@layout/core_line_padding" />
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/ripple_bg_while"
+                    android:padding="10dp"
+                    android:onClick="toPickJsrq">
+                    <TextView
+                        android:id="@+id/jrrq_title"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="结束时间"
+                        android:textColor="#212121"
+                        android:textSize="?attr/textSize15">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/jsrq_pick"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:textColor="#212121"
+                        android:textSize="?attr/textSize14"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:hint="必填">
+                    </TextView>
+                    <ImageView
+                        android:src="@mipmap/arrow_icon_xg"
+                        android:layout_width="?attr/image8"
+                        android:layout_height="?attr/image13"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
+                <include
+                    layout="@layout/core_line"/>
+                <LinearLayout
+                    android:id="@+id/tsqkLv"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/ripple_bg_while"
+                    android:padding="10dp"
+                    android:onClick="toPickTsqk">
+                    <TextView
+                        android:id="@+id/tsqk_title"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="调宿情况"
+                        android:textColor="#212121"
+                        android:textSize="?attr/textSize15">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/tsqk_pick"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:textColor="#212121"
+                        android:textSize="?attr/textSize14"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:hint="必填">
+                    </TextView>
+                    <ImageView
+                        android:src="@mipmap/arrow_icon_xg"
+                        android:layout_width="?attr/image8"
+                        android:layout_height="?attr/image13"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
+                <include
+                    layout="@layout/core_line"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="申请理由"
+                    android:padding="10dp"/>
+
+                <include layout="@layout/core_line" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/sqly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="top"
+                        android:hint="请输入你的申请理由"
+                        android:maxLength="200"
+                        android:minHeight="100dp"
+                        android:padding="10dp"
+                        android:textSize="?attr/textSize14" />
+
+                    <TextView
+                        android:id="@+id/tv_left_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|right"
+                        android:text="0/200"
+                        android:layout_margin="10dp"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ok"
+                android:layout_width="fill_parent"
+                android:layout_height="?attr/image42"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="40dip"
+                android:layout_marginBottom="40dip"
+                android:elevation="2dp"
+                android:background="@color/rcap_gray"
+                android:onClick="submitLiusu"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/ok_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="提交"
+                    android:textColor="@color/white"
+                    android:textSize="?attr/textSize14"/>
+
+                <com.dk.mp.core.view.DrawHookView
+                    android:id="@+id/progress"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:visibility="gone">
+                </com.dk.mp.core.view.DrawHookView>
+
+                <com.dk.mp.core.view.DrawCheckMarkView
+                    android:id="@+id/progress_check"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:visibility="gone">
+                </com.dk.mp.core.view.DrawCheckMarkView>
+
+                <com.dk.mp.core.view.DrawCrossMarkView
+                    android:id="@+id/progress_cross"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:visibility="gone">
+                </com.dk.mp.core.view.DrawCrossMarkView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

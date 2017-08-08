@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg">
+
+    <include layout="@layout/core_title_back"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="姓名" />
+
+            <TextView
+                android:id="@+id/xm"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="80dp"
+                android:text="王小二"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="学号" />
+
+            <TextView
+                android:id="@+id/xh"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="80dp"
+                android:text="112223"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="院系" />
+
+            <TextView
+                android:id="@+id/yx"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="80dp"
+                android:text="艺术学院"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="班级" />
+
+            <TextView
+                android:id="@+id/bj"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="80dp"
+                android:text="三班"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="开始时间" />
+
+            <TextView
+                android:id="@+id/kssj"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="80dp"
+                android:text="2018-08-9"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="结束时间" />
+
+            <TextView
+                android:id="@+id/jssj"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="80dp"
+                android:text="2910-32-3"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tsqkI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="调宿情况" />
+
+            <TextView
+                android:id="@+id/tsqk"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="80dp"
+                android:text="不想住了"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="申请理由" />
+
+            <TextView
+                android:id="@+id/sqly"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="80dp"
+                android:text="不想住了"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <com.dk.mp.core.widget.ErrorLayout
+        android:id="@+id/error_layout"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.dk.mp.core.widget.ErrorLayout>
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/week"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:text="周一"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/weekblue"
+        android:textSize="13sp"
+        android:background="@drawable/circlr_round_blue"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

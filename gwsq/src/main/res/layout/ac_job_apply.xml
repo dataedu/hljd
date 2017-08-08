@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/core_title_back"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:text="选择你的空余时间"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#9c9c9c"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:background="@color/bg"
+                    android:layout_marginLeft="10dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/weeksView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:scrollbars="none">
+                </android.support.v7.widget.RecyclerView>
+<!--
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:background="@color/bg"/>
+-->
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/jobViews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="申请理由"
+                    android:textColor="#9c9c9c"
+                    android:padding="10dp"/>
+
+                <include layout="@layout/core_line" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/sqly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="top"
+                        android:hint="请输入你的申请理由"
+                        android:textColorHint="#e3e3e3"
+                        android:maxLength="200"
+                        android:minHeight="100dp"
+                        android:padding="10dp"
+                        android:textSize="?attr/textSize14" />
+
+                    <TextView
+                        android:id="@+id/tv_left_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|right"
+                        android:text="0/200"
+                        android:textColor="#9c9c9c"
+                        android:layout_margin="10dp"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ok"
+                android:layout_width="fill_parent"
+                android:layout_height="?attr/image42"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="40dip"
+                android:layout_marginBottom="40dip"
+                android:elevation="2dp"
+                android:background="@color/rcap_gray"
+                android:onClick="submitLiusu"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/ok_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="提交"
+                    android:textColor="@color/white"
+                    android:textSize="?attr/textSize14"/>
+
+                <com.dk.mp.core.view.DrawHookView
+                    android:id="@+id/progress"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:visibility="gone">
+                </com.dk.mp.core.view.DrawHookView>
+
+                <com.dk.mp.core.view.DrawCheckMarkView
+                    android:id="@+id/progress_check"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:visibility="gone">
+                </com.dk.mp.core.view.DrawCheckMarkView>
+
+                <com.dk.mp.core.view.DrawCrossMarkView
+                    android:id="@+id/progress_cross"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:visibility="gone">
+                </com.dk.mp.core.view.DrawCrossMarkView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

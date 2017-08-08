@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="2016-2017学年"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+   <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/linecolor"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="应缴款金额"/>
+
+            <TextView
+                android:id="@+id/yingjiao"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:text="5000元"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="已缴款金额" />
+
+            <TextView
+                android:id="@+id/yijiao"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:text="5000元"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="免缴金额"/>
+
+            <TextView
+                android:id="@+id/mianjiao"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:text="500元"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="缓缴金额"/>
+
+            <TextView
+                android:id="@+id/hjje"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:text="50元"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="往年欠费"/>
+
+            <TextView
+                android:id="@+id/wnqf"
+                style="@style/gray_text"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/red"
+                android:text="5000元"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/gray_text"
+                android:text="待缴款金额"/>
+
+            <TextView
+                android:id="@+id/dsh"
+                style="@style/gray_text"
+                android:textColor="@color/red"
+                android:layout_alignParentRight="true"
+                android:text="500元"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

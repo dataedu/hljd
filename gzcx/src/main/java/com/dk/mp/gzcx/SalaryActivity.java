@@ -35,7 +35,7 @@ public class SalaryActivity extends MyActivity implements OnItemClickListener{
 	protected void initialize() {
 		super.initialize();
 
-		setTitle("工资查询");
+		setTitle(getIntent().getStringExtra("title"));
 		mContext = SalaryActivity.this;
 		findView();
 	}

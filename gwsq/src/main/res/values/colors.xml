@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="weekblue">#369ff3</color>
+    <color name="weekblack">#9c9c9c</color>
+
+    <color name="jobblack">#353535</color>
+    <color name="jobblue">#d7ecfd</color>
+
+</resources>

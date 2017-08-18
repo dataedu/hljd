@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.dk.mp.core.entity.PageMsg;
 import com.dk.mp.core.http.HttpUtil;
 import com.dk.mp.core.http.request.HttpListener;
+import com.dk.mp.core.ui.HttpWebActivity;
 import com.dk.mp.core.ui.MyActivity;
 import com.dk.mp.core.util.AdapterInterface;
 import com.dk.mp.core.util.DeviceUtil;
@@ -72,8 +73,8 @@ public class TzggActivity extends MyActivity implements View.OnClickListener{
             @Override
             public void setItemValue(RecyclerView.ViewHolder holder, int position) {
                 ((MyView)holder).title.setText(list.get(position).getTitle());
-                ((MyView)holder).shijian.setText(list.get(position).getTime());
-                ((MyView)holder).bumen.setText(list.get(position).getSubTitle());
+                ((MyView)holder).shijian.setText(list.get(position).getPublishTime());
+                ((MyView)holder).bumen.setText(list.get(position).getAuthor());
             }
 
             @Override
@@ -99,7 +100,7 @@ public class TzggActivity extends MyActivity implements View.OnClickListener{
     public void getList(){
         Map<String,Object> map = new HashMap<>();
         map.put("pageNo",myListView.pageNo);
-        HttpUtil.getInstance().gsonRequest(new TypeToken<PageMsg<Tzgg>>(){}, "apps/tzgg/list", map, new HttpListener<PageMsg<Tzgg>>() {
+        HttpUtil.getInstance().gsonRequest(new TypeToken<PageMsg<Tzgg>>(){}, "apps/notice/getList", map, new HttpListener<PageMsg<Tzgg>>() {
             @Override
             public void onSuccess(PageMsg<Tzgg> result) {
                 mError.setErrorType(ErrorLayout.HIDE_LAYOUT);
@@ -142,9 +143,11 @@ public class TzggActivity extends MyActivity implements View.OnClickListener{
                 public void onClick(View view) {
                     ViewCompat.setTransitionName(view, "detail_element");
                     Tzgg news = list.get(getLayoutPosition());
-                    Intent intent = new Intent(mContext, TzggDetailActivity.class);
+                    Intent intent = new Intent(mContext, TzggWebDetailActivity.class);
                     intent.putExtra("title", getIntent().getStringExtra("title"));
                     intent.putExtra("url", news.getUrl());
+                    intent.putExtra("webtitle",news.getTitle());
+                    intent.putExtra("webtime",news.getPublishTime());
 
                     ActivityOptionsCompat options = TransitionHelper.makeOptionsCompat((TzggActivity) mContext,
                             Pair.create(view,"detail_element"));

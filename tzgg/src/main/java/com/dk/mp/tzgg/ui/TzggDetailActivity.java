@@ -110,7 +110,7 @@ public class TzggDetailActivity extends MyActivity implements View.OnClickListen
                     mError.setErrorType(ErrorLayout.NODATA);
                     break;
             }
-        };
+        }
     };
 
     @Override

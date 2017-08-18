@@ -61,7 +61,7 @@ public class CardMainActivity extends MyActivity implements OnItemClickListener 
 		if (h.getValue("card_money") != null) {
 			money.setText(h.getValue("card_money") + "元");
 			money.setTextSize(50);
-//			name.setText("持卡人：" + h.getUser().getUserName());
+			name.setText("持卡人：" + h.getUser().getUserName());
 			cardNo.setText("卡号：" + h.getValue("card_no"));
 		}
 		getInfo();

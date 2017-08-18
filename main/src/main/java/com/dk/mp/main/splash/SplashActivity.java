@@ -50,7 +50,7 @@ public class SplashActivity extends MyActivity {
                 startActivity ( intent );
                 finish();
             }
-        },2000);
+        },1000);
 
     }
 
@@ -69,12 +69,12 @@ public class SplashActivity extends MyActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        releaseImageViewResouce(imageView);
+       /* releaseImageViewResouce(imageView);
         BitmapDrawable bd = (BitmapDrawable)layout.getBackground();
         layout.setBackgroundResource(0);
         bd.setCallback(null);
         bd.getBitmap().recycle();
-        layout = null;
+        layout = null;*/
     }
 
     private void login(){

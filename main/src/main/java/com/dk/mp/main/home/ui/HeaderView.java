@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewCompat;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -74,6 +75,7 @@ public class HeaderView {
         //注册网络状态监听
         BroadcastUtil.registerReceiver(context, mRefreshBroadcastReceiver, new String[]{"ref_headerview"});
     }
+
     private BroadcastReceiver mRefreshBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -150,6 +152,10 @@ public class HeaderView {
                     .build();
             view.setHierarchy(hierarchy);
 
+            if (slideList.size()<2){
+                mLoopViewPager.pause();
+            }
+
             return view;
         }
         @Override
@@ -168,6 +174,7 @@ public class HeaderView {
             super.setCurrent(current);
             TextView textView = (TextView) view.findViewById(R.id.tip);
             textView.setText(slideList.get(current).getName());
+            textView.getBackground().setAlpha(90);
         }
     }
 }

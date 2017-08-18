@@ -57,9 +57,9 @@ public class CardMonthActivity extends MyActivity {
 					if (result.getInt("code") != 200) {
 						errorLayout.setErrorType(ErrorLayout.DATAFAIL);
 					} else {
-						errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 						String str = result.getString("data");
 						content.setText(StringUtils.checkEmpty(str));
+						errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

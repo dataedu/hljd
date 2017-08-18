@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_bg"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/view_bg"
@@ -14,15 +13,13 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/error_layout"
-        android:gravity="center"/>
+        android:gravity="center_horizontal"/>
 
     <!--  -->
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/layout_top"
-        android:layout_above="@+id/lin_footer"
         android:scrollbars="none" >
 
         <com.dk.mp.tzgg.widget.OADetailView
@@ -56,4 +53,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

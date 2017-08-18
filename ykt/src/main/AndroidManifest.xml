@@ -8,6 +8,7 @@
         <activity
             android:name="com.dk.mp.ykt.CardMainActivity"
             android:label="@string/app_name"
+            android:theme="@style/ykt"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="ykt" />

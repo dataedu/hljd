@@ -48,12 +48,6 @@ public class LibraryRecordHistoryActivity extends BaseFragment implements View.O
 		errorLayout = (ErrorLayout) view.findViewById(R.id.error_layout);
 		listView = (MyListView) view.findViewById(R.id.newslist);
 
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-
 		errorLayout.setOnLayoutClickListener(this);
 
 		LinearLayoutManager manager = new LinearLayoutManager(getContext());
@@ -91,9 +85,9 @@ public class LibraryRecordHistoryActivity extends BaseFragment implements View.O
 	}
 
 	public void update() {
-		listView.startRefresh();
+//		listView.startRefresh();
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("pageNo", listView.pageNo+"");
+		map.put("pageNo", listView.pageNo);
 		Log.e("eeeeeeeeeeeeeeeeee",listView.pageNo+"");
 		HttpUtil.getInstance().gsonRequest(new TypeToken<PageMsg<BookRecord>>(){},"apps/tsg/getHistory", map, new HttpListener<PageMsg<BookRecord>>() {
 			@Override

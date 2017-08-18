@@ -28,19 +28,20 @@
     <string name="xlistview_footer_hint_ready">松开载入更多</string>
 
     <string name="defulicon">[
-        {\"id\":\"1\",\"name\":\"学校新闻\",\"url\":\"\",\"idCat\":\"1\",\"icon\":\"app_xxxw\",\"packageName\":\"\",\"action\":\"xxxw\",\"nameCat\":\"生活\"},
+       <!-- {\"id\":\"1\",\"name\":\"学校新闻\",\"url\":\"\",\"idCat\":\"1\",\"icon\":\"app_xxxw\",\"packageName\":\"\",\"action\":\"xxxw\",\"nameCat\":\"生活\"},
         {\"id\":\"2\",\"name\":\"通讯录\",\"url\":\"\",\"idCat\":\"2\",\"icon\":\"app_txl\",\"packageName\":\"\",\"action\":\"txl\",\"nameCat\":\"生活\"},
         {\"id\":\"3\",\"name\":\"工资查询\",\"url\":\"\",\"idCat\":\"3\",\"icon\":\"app_gzcx\",\"packageName\":\"\",\"action\":\"gzcx\",\"nameCat\":\"生活\"},
         {\"id\":\"4\",\"name\":\"图书馆\",\"url\":\"\",\"idCat\":\"4\",\"icon\":\"app_tsg\",\"packageName\":\"\",\"action\":\"tsg\",\"nameCat\":\"生活\"},
-        {\"id\":\"5\",\"name\":\"一卡通\",\"url\":\"\",\"idCat\":\"5\",\"icon\":\"app_ykt\",\"packageName\":\"\",\"action\":\"ykt\",\"nameCat\":\"生活\"},
-        {\"id\":\"6\",\"name\":\"通知公告\",\"url\":\"\",\"idCat\":\"6\",\"icon\":\"app_tzgg\",\"packageName\":\"\",\"action\":\"tzgg\",\"nameCat\":\"生活\"},
-        {\"id\":\"7\",\"name\":\"学生缴费\",\"url\":\"\",\"idCat\":\"7\",\"icon\":\"app_xsjf\",\"packageName\":\"\",\"action\":\"xsjf\",\"nameCat\":\"生活\"},
+        {\"id\":\"5\",\"name\":\"一卡通\",\"url\":\"\",\"idCat\":\"5\",\"icon\":\"app_ykt\",\"packageName\":\"\",\"action\":\"ykt\",\"nameCat\":\"生活\"},-->
+        {\"id\":\"6\",\"name\":\"通知公告\",\"url\":\"\",\"idCat\":\"6\",\"icon\":\"app_tzgg\",\"packageName\":\"\",\"action\":\"tzgg\",\"nameCat\":\"生活\"}
+        <!--{\"id\":\"7\",\"name\":\"学生缴费\",\"url\":\"\",\"idCat\":\"7\",\"icon\":\"app_xsjf\",\"packageName\":\"\",\"action\":\"xsjf\",\"nameCat\":\"生活\"},
         {\"id\":\"8\",\"name\":\"床位异动\",\"url\":\"\",\"idCat\":\"8\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"cwyd\",\"nameCat\":\"生活\"},
         {\"id\":\"9\",\"name\":\"困难生认定\",\"url\":\"\",\"idCat\":\"9\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"knsrd\",\"nameCat\":\"生活\"},
         {\"id\":\"10\",\"name\":\"岗位申请\",\"url\":\"\",\"idCat\":\"10\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"gwsq\",\"nameCat\":\"生活\"},
         {\"id\":\"11\",\"name\":\"上课考勤信息查询\",\"url\":\"\",\"idCat\":\"11\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"skkqxxcx\",\"nameCat\":\"生活\"},
         {\"id\":\"12\",\"name\":\"成长导航\",\"url\":\"\",\"idCat\":\"12\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"czdh\",\"nameCat\":\"生活\"},
         {\"id\":\"13\",\"name\":\"评奖评优\",\"url\":\"\",\"idCat\":\"13\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"pjpy\",\"nameCat\":\"生活\"},
-        {\"id\":\"14\",\"name\":\"助学金\",\"url\":\"\",\"idCat\":\"14\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"zxj\",\"nameCat\":\"生活\"}]</string>
+        {\"id\":\"14\",\"name\":\"助学金\",\"url\":\"\",\"idCat\":\"14\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"zxj\",\"nameCat\":\"生活\"}-->
+        ]</string>
 
 </resources>

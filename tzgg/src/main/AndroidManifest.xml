@@ -15,6 +15,9 @@
 
         <activity android:name="com.dk.mp.tzgg.ui.TzggDetailActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name="com.dk.mp.tzgg.ui.TzggWebDetailActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

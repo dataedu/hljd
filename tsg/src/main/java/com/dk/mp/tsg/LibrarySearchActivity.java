@@ -1,5 +1,6 @@
 package com.dk.mp.tsg;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,18 +37,16 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONObject;
 
 
-@TargetApi(Build.VERSION_CODES.CUPCAKE) public class LibrarySearchActivity extends MyActivity implements IXListViewListener{
+@TargetApi(Build.VERSION_CODES.CUPCAKE)
+public class LibrarySearchActivity extends MyActivity implements IXListViewListener{
 	private BookAdapter mAdapter;
 	private XListView mListView;
 	private EditText searchKeywords;
-	private List<Book> list;
+	private List<Book> list = new ArrayList<>();
 	private TextView cancle_search;
 	int pageNo=1;
-	int totalPages = 1;
-	private PageMsg page;
 
 	private ErrorLayout errorLayout;
-	Gson gson = new Gson();
 
 	@Override
 	protected int getLayoutID() {
@@ -106,51 +105,37 @@ import org.json.JSONObject;
 		map.put("key", searchKeywords.getText().toString());
 		map.put("pageNo", pageNo+"");
 
-		HttpUtil.getInstance().postJsonObjectRequest("apps/tsg/query", map, new HttpListener<JSONObject>() {
+		HttpUtil.getInstance().gsonRequest(new TypeToken<PageMsg<Book>>(){}, "apps/tsg/query", map, new HttpListener<PageMsg<Book>>() {
 			@Override
-			public void onSuccess(JSONObject result) {
-				try {
-					if (result.getInt("code") != 200) {
-						errorLayout.setErrorType(ErrorLayout.DATAFAIL);
-					} else {
-						errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
+			public void onSuccess(PageMsg<Book> result) {
+				errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 
-						JSONObject jsonObject = result.getJSONObject("data");
-						PageMsg<Book> pageMsg = gson.fromJson(jsonObject.getJSONObject("list").toString(),new TypeToken<PageMsg<Book>>(){}.getType());
-						totalPages = pageMsg.getTotalPages();
-
-						if (pageMsg.getList() != null && pageMsg.getList().size()>0){
-							list.addAll(pageMsg.getList());
-							mListView.setVisibility(View.VISIBLE);
-							if (mAdapter == null){
-								mAdapter = new BookAdapter(LibrarySearchActivity.this,list);
-								mListView.setAdapter(mAdapter);
-							}else {
-								mAdapter.setData(list);
-								mAdapter.notifyDataSetChanged();
-							}
-
-							if(list.size()<20){
-								mListView.hideFooter();
-							}else {
-								mListView.showFooter();
-							}
-						}else {
-							if (pageNo>1){
-								showErrorMsg("没有更多了");
-							}else {
-								errorLayout.setErrorType(ErrorLayout.SEARCHNODATA);
-							}
-						}
-
-						mListView.stopLoadMore();
-						mListView.stopRefresh();
+				if (result.getList() != null && result.getList().size()>0){
+					list.addAll(result.getList());
+					mListView.setVisibility(View.VISIBLE);
+					if (mAdapter == null){
+						mAdapter = new BookAdapter(LibrarySearchActivity.this,list);
+						mListView.setAdapter(mAdapter);
+					}else {
+						mAdapter.setData(list);
+						mAdapter.notifyDataSetChanged();
 					}
-				} catch (Exception e) {
-					e.printStackTrace();
-					errorLayout.setErrorType(ErrorLayout.DATAFAIL);
-					mListView.setVisibility(View.GONE);
+
+					if(list.size()<20){
+						mListView.hideFooter();
+					}else {
+						mListView.showFooter();
+					}
+				}else {
+					if (pageNo>1){
+						showErrorMsg("没有更多了");
+					}else {
+						errorLayout.setErrorType(ErrorLayout.SEARCHNODATA);
+					}
 				}
+
+				mListView.stopLoadMore();
+				mListView.stopRefresh();
 			}
 
 			@Override

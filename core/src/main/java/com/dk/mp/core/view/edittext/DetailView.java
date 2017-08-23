@@ -31,6 +31,9 @@ public class DetailView extends LinearLayout {
 		webSetting.setJavaScriptEnabled(true);
 		webSetting.setBuiltInZoomControls(false);
 		webSetting.setSupportZoom(false);
+
+		w.setBackgroundColor(0);
+
 	}
 
 	public DetailView(Context context) {

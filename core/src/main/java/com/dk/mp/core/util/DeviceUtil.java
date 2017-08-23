@@ -8,7 +8,9 @@ import android.graphics.Rect;
 import android.net.ConnectivityManager;
 import android.view.WindowManager;
 
+import com.dk.mp.core.R;
 import com.dk.mp.core.application.MyApplication;
+import com.dk.mp.core.dialog.MsgDialog;
 
 /**
  * 作者：janabo on 2016/12/14 16:28
@@ -29,6 +31,24 @@ public class DeviceUtil {
         }
         return flag;
     }
+
+    public static boolean checkNet2() {
+        Context context = MyApplication.getContext();
+        boolean flag = false;
+        ConnectivityManager cwjManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cwjManager.getActiveNetworkInfo() != null) {
+            flag = cwjManager.getActiveNetworkInfo().isAvailable();
+        }
+        if (!flag) {
+            try {
+                MsgDialog.show(context, context.getString(R.string.net_no2));
+            } catch (Exception e) {
+            }
+        }
+        return flag;
+    }
+
+
 
     /**
      * 功能:获得版本号.

@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.dk.mp.core.R;
 import com.dk.mp.core.application.MyApplication;
+import com.dk.mp.core.dialog.MsgDialog;
 import com.dk.mp.core.entity.App;
 import com.dk.mp.core.util.AppUtil;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
@@ -68,7 +69,6 @@ public abstract class MyActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initTheme();
-//        setContentView ( getLayoutID ( ) );
         classname = this.getClass().getName();
         x = getIntent().getIntExtra("x",-10);
         y = getIntent().getIntExtra("y",-10);
@@ -193,6 +193,15 @@ public abstract class MyActivity extends AppCompatActivity{
         }
         return gson;
     }
+
+    /**
+     * 显示提示信息.
+     * @param message 提示信息
+     */
+    public void showMessage(String message) {
+        MsgDialog.show(this, message);
+    }
+
 
     /**
      * @param title 标题栏文字

@@ -56,12 +56,13 @@ public class SalaryDetailActivity extends MyActivity {
 						} else {
 							String str = result.getString("data");
 							content.setText(StringUtils.checkEmpty(str));
-							errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
+//							errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
 						errorLayout.setErrorType(ErrorLayout.DATAFAIL);
 					}
+					errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 				}
 
 				@Override

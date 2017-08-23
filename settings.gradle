@@ -1,1 +1,1 @@
-include ':app', ':core', ':main', ':xxxw', ':txl', ':tzgg', ':gzcx', ':ykt', ':tsg', ':xsjf', ':cwyd', ':xsxx', ':knsrd', ':gwsq'
+include ':app', ':core', ':main', ':xxxw', ':txl', ':tzgg', ':gzcx', ':ykt', ':tsg', ':xsjf', ':cwyd', ':xsxx', ':knsrd', ':gwsq', ':gzbx'

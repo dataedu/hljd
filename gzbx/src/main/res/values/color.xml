@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <color name="main_bg">#F4F4F4</color>
+     <color name="main_blue">#00B7EE</color>
+     <color name="tro_blue_tran">#7f00B7EE</color>
+     <color name="main_yel">#F8B551</color>
+     <color name="tro_yel_tran">#7fF8B551</color>
+     <color name="main_gre">#32B16C</color>
+     <color name="tro_gre_tran">#7f32B16C</color>
+     <color name="tro_line">#C9C9C9</color>
+     <color name="tro_status">#969696</color>
+     <color name="tro_malfunction">#212121</color>
+     <color name="user_photo1">#00b7ee</color>
+     <color name="user_photo2">#13b5b1</color>
+     <color name="user_photo3">#32b16c</color>
+     <color name="user_photo4">#f8b551</color>
+     <color name="user_photo5">#ec6941</color>
+     <color name="tro_bottom_color">#00b7ee</color>
+     <color name="tro_suc_fontcolor">#00bc88</color>
+     <color name="tro_person_name">#646464</color>
+</resources>

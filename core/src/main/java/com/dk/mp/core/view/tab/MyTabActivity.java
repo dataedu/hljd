@@ -96,6 +96,14 @@ public class MyTabActivity extends TabActivity {
 		}
 	};
 
+
+	public void updateRadioText(List<String> tabs){
+		for (int i = 0; i < radioGroup.getChildCount(); i++) {
+			RadioButton radio = (RadioButton) radioGroup.getChildAt(i);
+			radio.setText(tabs.get(i));
+		}
+	}
+
 	/**
 	 * 初始化皮肤.
 	 * @param title 标题栏文字
@@ -125,7 +133,7 @@ public class MyTabActivity extends TabActivity {
 			}
 		}
 	}
-	
+
 	public void setRightText(String text, OnClickListener listener) {
 		try {
 			TextView right_txt = (TextView) findViewById(R.id.right_txt);
@@ -135,7 +143,18 @@ public class MyTabActivity extends TabActivity {
 		} catch (Exception e) {
 		}
 	}
-	
+
+	public void setRightText(String text, OnClickListener listener,int textColor) {
+		try {
+			TextView right_txt = (TextView) findViewById(R.id.right_txt);
+			right_txt.setText(text);
+			right_txt.setVisibility(View.VISIBLE);
+			right_txt.setOnClickListener(listener);
+			right_txt.setTextColor(textColor);
+		} catch (Exception e) {
+		}
+	}
+
 	/**
 	 * 显示提示信息.
 	 * @param message 提示信息
@@ -143,7 +162,7 @@ public class MyTabActivity extends TabActivity {
 	public void showMessage(String message) {
 		MsgDialog.show(this, message);
 	}
-	
+
 	/**
 	 * 无网络提示
 	 */
@@ -152,7 +171,7 @@ public class MyTabActivity extends TabActivity {
 		ImageView zwsj_icon = (ImageView) findViewById(R.id.zwsj_icon);
 		TextView zwsj_text = (TextView) findViewById(R.id.zwsj_text);
 		zwsj.setVisibility(View.VISIBLE);
-		zwsj_icon.setImageResource(R.mipmap.nonet);
+		zwsj_icon.setImageResource(R.mipmap.net_fail);
 		zwsj_text.setText(getString(R.string.net_no2));
 	}
 
@@ -165,7 +184,7 @@ public class MyTabActivity extends TabActivity {
 		ImageView zwsj_icon = (ImageView) findViewById(R.id.zwsj_icon);
 		TextView zwsj_text = (TextView) findViewById(R.id.zwsj_text);
 		zwsj.setVisibility(View.VISIBLE);
-		zwsj_icon.setImageResource(R.mipmap.nodata_n);
+		zwsj_icon.setImageResource(R.mipmap.nodata);
 		if(text!=null){
 			zwsj_text.setText(text);
 		}else{
@@ -182,7 +201,7 @@ public class MyTabActivity extends TabActivity {
 		ImageView zwsj_icon = (ImageView) findViewById(R.id.zwsj_icon);
 		TextView zwsj_text = (TextView) findViewById(R.id.zwsj_text);
 		zwsj.setVisibility(View.VISIBLE);
-		zwsj_icon.setImageResource(R.mipmap.errorserver);
+		zwsj_icon.setImageResource(R.mipmap.data_fail);
 		if(text!=null){
 			zwsj_text.setText(text);
 		}else{

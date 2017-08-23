@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dk.mp.core.dialog.MsgDialog;
 import com.google.gson.Gson;
 
 /**
@@ -52,5 +53,13 @@ public abstract class BaseFragment extends BaseLazyFragment {
             gson = new Gson();
         }
         return gson;
+    }
+
+    /**
+     * 显示提示信息.
+     * @param message 提示信息
+     */
+    public void showMessage(String message) {
+        MsgDialog.show(mContext, message);
     }
 }

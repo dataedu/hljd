@@ -34,4 +34,5 @@ dependencies {
     compile project(':xsxx')
     compile project(':knsrd')
     compile project(':gwsq')
+    compile project(':gzbx')
 }

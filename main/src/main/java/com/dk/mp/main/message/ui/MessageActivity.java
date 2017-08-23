@@ -192,14 +192,14 @@ public class MessageActivity extends MyActivity {
 							mListView.flish();
 						}
 					} catch (JSONException e) {
-						mListView.error(MyListView.Error.OnError);
+						mListView.error(MyListView.Error.NoDatas);
 					}
 				}
 			}
 
 			@Override
 			public void onError(VolleyError error) {
-				mListView.error(MyListView.Error.OnError);
+				mListView.error(MyListView.Error.NoDatas);
 			}
 		});
 	}

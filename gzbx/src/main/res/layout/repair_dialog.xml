@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="30dip"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:gravity="center">
+         <TextView
+        	android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="请填写维修反馈情况"
+            android:textColor="@color/tro_malfunction"
+            android:textSize="15.0sp" />
+	</LinearLayout>
+    <LinearLayout
+        android:layout_width="210dip"
+        android:layout_height="85dip"
+        android:orientation="horizontal"
+        android:background="@color/main_bg"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip" >
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/tro_malfunction"
+            android:textSize="12.0sp"
+            android:maxLength="140"
+            android:background="@null"
+            android:padding="5dip"
+            android:gravity="top"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="42dip"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/repair_dialog"
+            android:gravity="center"
+            android:text="@string/cancle" />
+        
+        
+    <View
+        android:layout_width="1px"
+        android:layout_height="30dip"
+        android:layout_marginTop="6dip"
+        android:layout_marginBottom="6dip"
+        android:background="@drawable/mylist_corner_line" />
+
+        <Button
+            android:id="@+id/ok"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/repair_dialog"
+            android:gravity="center"
+            android:text="@string/ok" />
+    </LinearLayout>
+
+</LinearLayout>

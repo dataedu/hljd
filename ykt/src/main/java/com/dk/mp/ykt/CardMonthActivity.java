@@ -1,5 +1,7 @@
 package com.dk.mp.ykt;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,12 +61,13 @@ public class CardMonthActivity extends MyActivity {
 					} else {
 						String str = result.getString("data");
 						content.setText(StringUtils.checkEmpty(str));
-						errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
+//						errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
 					errorLayout.setErrorType(ErrorLayout.DATAFAIL);
 				}
+					errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 			}
 
 				@Override
@@ -72,6 +75,8 @@ public class CardMonthActivity extends MyActivity {
 					errorLayout.setErrorType(ErrorLayout.DATAFAIL);
 				}
 			});
+		}else {
+			errorLayout.setErrorType(ErrorLayout.NETWORK_ERROR);
 		}
 	}
 

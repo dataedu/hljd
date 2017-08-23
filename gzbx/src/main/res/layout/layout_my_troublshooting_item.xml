@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/more_bg"
+    android:orientation="horizontal" >
+	
+    <LinearLayout 
+       android:layout_width="50dp"
+       android:layout_height="50dp"
+       android:gravity="center">
+		   <LinearLayout 
+		       android:layout_width="30dp"
+		       android:layout_height="30dp"
+		       android:background="@drawable/radius"
+		       android:gravity="center">
+		       <TextView
+		           android:id="@+id/tro_name"
+		           android:layout_width="wrap_content"
+		           android:layout_height="wrap_content"
+		           android:text="王\n旭伟"
+		           android:textColor="@color/white"
+		           android:textSize="10sp" 
+		           android:gravity="center"/>
+		   </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="0.7"
+        android:orientation="vertical" >
+   		<TextView
+   		    android:id="@+id/tro_title"
+   		    android:layout_width="match_parent"
+   		    android:layout_height="30dp"
+   		    android:text="王旭伟老师的报修"
+   		    android:textColor="@color/tro_malfunction"
+   		    android:textSize="15sp"
+   		    android:gravity="fill_vertical"/>
+   		<TextView
+   		    android:id="@+id/tro_status"
+   		    android:layout_width="match_parent"
+   		    android:layout_height="20dp"
+   		    android:text="已处理"
+   		    android:textColor="@color/tro_status"
+   		    android:textSize="12sp"/>
+   </LinearLayout>
+   <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="0.3"
+        android:orientation="vertical" >
+   		<TextView
+   		    android:id="@+id/tro_time"
+   		    android:layout_width="match_parent"
+   		    android:layout_height="30dp"
+   		    android:text="2015.11.24"
+   		    android:textColor="@color/tro_status"
+   		    android:textSize="12sp"
+   		    android:gravity="center"/>
+   </LinearLayout>
+</LinearLayout>

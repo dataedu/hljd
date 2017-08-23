@@ -1,0 +1,62 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.dk.mp.gzbx">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <activity
+            android:name="com.dk.mp.gzbx.ui.TroublshootingMainActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="gzbx"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dk.mp.gzbx.ui.AddMalfunctionActivity"
+            android:screenOrientation="portrait"
+            android:label="申请报修"/>
+        <activity
+            android:name="com.dk.mp.gzbx.ui.MytroublshootingActivity"
+            android:screenOrientation="portrait"
+            android:label="我发起的报修"/>
+        <activity
+            android:name="com.dk.mp.gzbx.ui.MyTroublshootingListActivity"
+            android:screenOrientation="portrait"
+            android:label="我发起的报修"/>
+        <activity
+            android:name="com.dk.mp.gzbx.ui.MyTroublshootingProcessActivity"
+            android:screenOrientation="portrait"
+            android:label="我发起的报修"/>
+        <activity
+            android:name="com.dk.mp.gzbx.ui.AwaitingApprovalActivity"
+            android:screenOrientation="portrait"
+            android:label="待我审批的"/>
+        <activity
+            android:name="com.dk.mp.gzbx.ui.ContactPersonActivity"
+            android:screenOrientation="portrait"
+            android:label="联系人"/>
+        <activity
+            android:name="com.dk.mp.gzbx.ui.AwaitApprovalProcessActivity"
+            android:screenOrientation="portrait"
+            android:label="待我审批详细流程"/>
+
+        <activity
+            android:name="com.dk.mp.gzbx.ui.PushProcessActivity"
+            android:screenOrientation="portrait"
+            android:label="流程推送详情界面"/>
+
+        <activity
+            android:name="com.dk.mp.gzbx.ui.GzbxTabActivity"
+            android:screenOrientation="portrait"
+            android:label="跟踪保修"/>
+
+        <activity
+            android:name="com.dk.mp.gzbx.ui.DwspTabActivity"
+            android:screenOrientation="portrait"
+            android:label="待我审批"/>
+
+    </application>
+
+</manifest>

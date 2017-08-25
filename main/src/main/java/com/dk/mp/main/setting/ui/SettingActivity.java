@@ -5,14 +5,17 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.SwitchCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dk.mp.core.dialog.AlertDialog;
 import com.dk.mp.core.entity.User;
@@ -127,7 +130,7 @@ public class SettingActivity extends MyActivity{
      * @param v
      */
     public  void onClickCleanCache(View v) {
-        AlertDialog alert = new AlertDialog(mContext);
+       /* AlertDialog alert = new AlertDialog(mContext);
         alert.show("提示", "确定要清除缓存吗?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -135,11 +138,38 @@ public class SettingActivity extends MyActivity{
                     @Override
                     public void run() {
                         FileUtil.delete(7);
-                        SnackBarUtil.showShort(setting_scro,"清除缓存成功!");
+//                        SnackBarUtil.showShort(setting_scro,"清除缓存成功!");
+
                     }
                 }).start();
             }
         });
+*/
+
+        android.support.v7.app.AlertDialog.Builder alertDialog = new android.support.v7.app.AlertDialog.Builder(context);
+        alertDialog.setTitle("提示")
+                .setMessage("确定要清除缓存吗?")
+                .setNegativeButton("取消",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SnackBarUtil.showShort(setting_scro,"清除缓存成功!");
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                FileUtil.delete(7);
+//                                SnackBarUtil.showShort(setting_scro,"清除缓存成功!");
+
+                            }
+                        }).start();
+                     }
+                 });
+        alertDialog.create().show();
     }
 
     /**

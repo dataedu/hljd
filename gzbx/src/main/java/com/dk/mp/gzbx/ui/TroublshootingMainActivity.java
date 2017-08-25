@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,9 @@ import com.android.volley.VolleyError;
 import com.dk.mp.core.http.HttpUtil;
 import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
+import com.dk.mp.core.util.BroadcastUtil;
 import com.dk.mp.core.util.DeviceUtil;
+import com.dk.mp.core.widget.ErrorLayout;
 import com.dk.mp.gzbx.R;
 
 import org.json.JSONException;
@@ -31,15 +34,28 @@ import org.json.JSONObject;
  *
  */
 public class TroublshootingMainActivity extends MyActivity implements OnClickListener{
+
 	private RelativeLayout mytroublshooting;//我发起的
 	private RelativeLayout awaiting_approval;//等待我处理的
-	private LinearLayout addmalfunction;//添加故障
+	private RelativeLayout addmalfunction;//添加故障
+
 	private Map<String,String> map = new HashMap<>();
-	private TextView mytroublshooting_text;
-	private TextView awaiting_approval_text;
-	private TextView addmalfunction_text;
-	private TextView mytroublshooting_text2;
+
 	private LinearLayout mytroublshooting2;
+	private LinearLayout mytroublshooting3;
+	private TextView mytroublshooting_text2;
+	private TextView mytroublshooting_text3;
+
+	private LinearLayout addmalfunction2;
+	private LinearLayout addmalfunction3;
+	private TextView addmalfunction_text2;
+	private TextView addmalfunction_text3;
+
+	private TextView awaiting_approval_text;
+
+	private ErrorLayout errorLayout;
+
+	public static final String ACTION_REFRESH = "com.test.action.refresh";
 
 	@Override
 	protected int getLayoutID() {
@@ -52,26 +68,48 @@ public class TroublshootingMainActivity extends MyActivity implements OnClickLis
 
 		setTitle(R.string.troublshooting);
 		initViews();
-//		getData();
+
+		getData();
+		BroadcastUtil.registerReceiver(mContext, receiver, new String[]{"checknetwork_true",ACTION_REFRESH});
 	}
+
+	private BroadcastReceiver receiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			if (ACTION_REFRESH.equals(intent.getAction()) || "checknetwork_true".equals(intent.getAction())) {
+				getData();
+			}
+		}
+	};
 	
 	public void initViews(){
+		errorLayout = (ErrorLayout) findViewById(R.id.error_layout);
+
 		mytroublshooting = (RelativeLayout) findViewById(R.id.mytroublshooting);
 		awaiting_approval = (RelativeLayout) findViewById(R.id.awaiting_approval);
-		addmalfunction = (LinearLayout) findViewById(R.id.addmalfunction);
+		addmalfunction = (RelativeLayout) findViewById(R.id.addmalfunction);
+
 		mytroublshooting2 = (LinearLayout) findViewById(R.id.mytroublshooting2);
-		mytroublshooting_text = (TextView) findViewById(R.id.mytroublshooting_text);
-		awaiting_approval_text = (TextView) findViewById(R.id.awaiting_approval_text);
-		addmalfunction_text = (TextView) findViewById(R.id.addmalfunction_text);
+		mytroublshooting3 = (LinearLayout) findViewById(R.id.mytroublshooting3);
 		mytroublshooting_text2 = (TextView) findViewById(R.id.mytroublshooting_text2);
+		mytroublshooting_text3 = (TextView) findViewById(R.id.mytroublshooting_text3);
+
+		awaiting_approval_text = (TextView) findViewById(R.id.awaiting_approval_text);
+
+		addmalfunction2 = (LinearLayout) findViewById(R.id.addmalfunction2);
+		addmalfunction3 = (LinearLayout) findViewById(R.id.addmalfunction3);
+		addmalfunction_text2 = (TextView) findViewById(R.id.addmalfunction_text2);
+		addmalfunction_text3 = (TextView) findViewById(R.id.addmalfunction_text3);
+
+
 		mytroublshooting.setOnClickListener(this);
 		awaiting_approval.setOnClickListener(this);
 		addmalfunction.setOnClickListener(this);
 	}
 	
 	public void getData(){
+		errorLayout.setErrorType(ErrorLayout.LOADDATA);
 		if(DeviceUtil.checkNet()){
-
 			HttpUtil.getInstance().postJsonObjectRequest("apps/gzbx/dclzs", null, new HttpListener<JSONObject>() {
 				@Override
 				public void onSuccess(JSONObject result) {
@@ -91,24 +129,27 @@ public class TroublshootingMainActivity extends MyActivity implements OnClickLis
 						e.printStackTrace();
 						showMessage(getString(R.string.data_error));
 					}
+					errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 				}
 
 				@Override
 				public void onError(VolleyError error) {
 					showMessage(getString(R.string.data_error));
+					errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 				}
 			});
 		}else{
+			errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 			showMessage(getString(R.string.net_no2));
+
 			awaiting_approval.setVisibility(View.GONE);
-			mytroublshooting_text.setVisibility(View.GONE);
-			mytroublshooting2.setOrientation(LinearLayout.VERTICAL);
-			addmalfunction.setOrientation(LinearLayout.VERTICAL);
-			LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-			lp.setMargins(0, 20, 0, 0);
-			mytroublshooting_text2.setLayoutParams(lp);
-			addmalfunction_text.setLayoutParams(lp);
+
+			mytroublshooting2.setVisibility(View.VISIBLE);
+			mytroublshooting3.setVisibility(View.GONE);
 			mytroublshooting_text2.setText("跟踪报修（0）");
+
+			addmalfunction2.setVisibility(View.VISIBLE);
+			addmalfunction3.setVisibility(View.GONE);
 		}
 	}
 
@@ -136,21 +177,23 @@ public class TroublshootingMainActivity extends MyActivity implements OnClickLis
 				String dwsp = map.get("dwsp");
 				if("0".equals(type)){
 					awaiting_approval.setVisibility(View.GONE);
-					mytroublshooting_text.setVisibility(View.GONE);
-					mytroublshooting2.setOrientation(LinearLayout.VERTICAL);
-					addmalfunction.setOrientation(LinearLayout.VERTICAL);
-					LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-					lp.setMargins(0, 20, 0, 0);
-					mytroublshooting_text2.setLayoutParams(lp);
-					addmalfunction_text.setLayoutParams(lp);
-					mytroublshooting_text2.setText("跟踪报修（"+gzbx+"）");
+
+					mytroublshooting2.setVisibility(View.GONE);
+					mytroublshooting3.setVisibility(View.VISIBLE);
+					mytroublshooting_text3.setText("跟踪报修（"+gzbx+"）");
+
+					addmalfunction2.setVisibility(View.GONE);
+					addmalfunction3.setVisibility(View.VISIBLE);
 				}else{
 					awaiting_approval.setVisibility(View.VISIBLE);
-					mytroublshooting_text.setVisibility(View.VISIBLE);
-					mytroublshooting2.setOrientation(LinearLayout.HORIZONTAL);
-					addmalfunction.setOrientation(LinearLayout.HORIZONTAL);
 					awaiting_approval_text.setText("（"+dwsp+"）");
-					mytroublshooting_text.setText("（"+gzbx+"）");
+
+					mytroublshooting2.setVisibility(View.GONE);
+					mytroublshooting3.setVisibility(View.VISIBLE);
+					mytroublshooting_text3.setText("跟踪报修（"+gzbx+"）");
+
+					addmalfunction2.setVisibility(View.GONE);
+					addmalfunction3.setVisibility(View.VISIBLE);
 				}
 				
 				break;
@@ -165,6 +208,8 @@ public class TroublshootingMainActivity extends MyActivity implements OnClickLis
 	@Override
 	protected void onResume() {
 		super.onResume();
-		getData();
+
+//		getData();
+
 	}
 }

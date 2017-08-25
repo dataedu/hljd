@@ -76,7 +76,7 @@
 				       <TextView
 			   		    android:layout_width="wrap_content"
 			   		    android:layout_height="wrap_content"
-			   		    android:text="地点："
+			   		    android:text="地        点："
 			   		    android:textColor="@color/tro_status"
 			   		    android:textSize="12sp"
 			   		    android:gravity="fill_vertical"/>
@@ -84,7 +84,7 @@
 			   		    android:id="@+id/address"
 			   		    android:layout_width="match_parent"
 			   		    android:layout_height="wrap_content"
-			   		    android:text="教育2楼302室教育2楼302室教育2楼302室教育2楼302室教育2楼302室教育2楼302室教育2楼302室教育2楼302室教育2楼302室"
+			   		    android:text=""
 			   		    android:textColor="@color/tro_malfunction"
 			   		    android:textSize="12sp"
 			   		    android:gravity="fill_vertical"
@@ -98,7 +98,7 @@
 				       <TextView
 			   		    android:layout_width="wrap_content"
 			   		    android:layout_height="wrap_content"
-			   		    android:text="设备："
+			   		    android:text="设        备："
 			   		    android:textColor="@color/tro_status"
 			   		    android:textSize="12sp"/>
 				       <TextView

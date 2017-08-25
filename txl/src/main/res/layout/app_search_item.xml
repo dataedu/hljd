@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="?attr/image44"
         android:layout_marginRight="10dip"
         android:layout_centerVertical="true"
@@ -21,7 +21,7 @@
 
     <TextView
         android:id="@+id/department"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="?attr/image44"
         android:layout_marginRight="10dip"
         android:layout_centerVertical="true"

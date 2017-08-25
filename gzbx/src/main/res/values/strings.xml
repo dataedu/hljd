@@ -16,8 +16,8 @@
     <string name="tro_end_repair">已维修</string>
     <string name="net_error">网络异常，请稍后重试</string>
     <string name="data_error">获取信息失败，请重试</string>
-    <string name="nodata">暂无数据</string>
-    <string name="nodata_awaitapproval">暂无数据</string>
+    <string name="nodata">还没有数据哦</string>
+    <string name="nodata_awaitapproval">还没有数据哦</string>
     <string name="ok">确定</string>
     <string name="cancle">取消</string>
 </resources>

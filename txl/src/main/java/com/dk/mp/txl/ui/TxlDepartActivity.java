@@ -36,6 +36,7 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import pub.devrel.easypermissions.EasyPermissions;
@@ -228,6 +229,7 @@ public class TxlDepartActivity extends MyActivity implements EasyPermissions.Per
             }
             mList.clear();
             mList.addAll(jbxxs);
+            Collections.reverse(mList);
             mAdapter.notifyDataSetChanged();
         }else{
             isxb = false;

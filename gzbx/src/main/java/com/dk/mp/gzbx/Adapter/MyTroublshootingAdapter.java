@@ -62,7 +62,7 @@ public class MyTroublshootingAdapter extends BaseAdapter{
 		Malfunction m = list.get(position);
 		String name = m.getName();
 		mv.tro_name.setText(StringUtil.dealString(name));
-		mv.tro_title.setText(m.getTitle()+"老师的报修");
+		mv.tro_title.setText(m.getTitle()+"的报修");
 		mv.tro_status.setText(m.getStatusname());
 		mv.tro_time.setText(m.getTime());
 		convertView.setTag(mv);

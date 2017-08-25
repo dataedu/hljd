@@ -169,7 +169,8 @@ public class GzbxListActivity extends BaseFragment implements AdapterView.OnItem
 
                 @Override
                 public void onError(VolleyError error) {
-
+                    listView.setVisibility(View.GONE);
+                    errorLayout.setErrorType(ErrorLayout.DATAFAIL);
                 }
             });
         }

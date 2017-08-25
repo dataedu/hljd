@@ -74,7 +74,7 @@ public class AddMalfunctionActivity extends MyActivity{
 		progress_cross = (DrawCrossMarkView) findViewById(R.id.progress_cross);
 		ok_text = (TextView) findViewById(R.id.ok_text);
 
-		ok.setEnabled(false);
+//		ok.setEnabled(false);
 
 		tro_address = (EditText) findViewById(R.id.tro_address);
 		tro_dev = (EditText) findViewById(R.id.tro_dev);
@@ -128,7 +128,7 @@ public class AddMalfunctionActivity extends MyActivity{
 		final String devText = tro_dev.getText().toString().trim();
 		final String proText = tro_problem.getText().toString().trim();
 		if(addressText.length()<=0){
-			showMessage("请填写地址");
+			showMessage("请填写地点");
 			return;
 		}
 		if(devText.length()<=0){
@@ -170,6 +170,7 @@ public class AddMalfunctionActivity extends MyActivity{
 							@Override
 							public void run() {
 								ok.setEnabled(true);
+								showMessage("提交成功");
 								onBackPressed();
 							}
 						},1500);
@@ -202,9 +203,9 @@ public class AddMalfunctionActivity extends MyActivity{
 		
 		@Override
 		public void afterTextChanged(Editable s) {
-			dealOkButton();
+//			dealOkButton();
 			if(tro_address.getText().toString().trim().length() >= 50){
-				showMessage("地址不能大于50个字");
+				showMessage("地点不能大于50个字");
 			}
 		}
 	};
@@ -221,7 +222,7 @@ public class AddMalfunctionActivity extends MyActivity{
 		
 		@Override
 		public void afterTextChanged(Editable s) {
-			dealOkButton();
+//			dealOkButton();
 			if(tro_dev.getText().toString().trim().length() >= 50){
 				showMessage("设备不能大于50个字");
 			}
@@ -239,7 +240,7 @@ public class AddMalfunctionActivity extends MyActivity{
 		
 		@Override
 		public void afterTextChanged(Editable s) {
-			dealOkButton();
+//			dealOkButton();
 			if(tro_problem.getText().toString().trim().length() >= 200){
 				showMessage("问题描述不能大于200个字");
 			}

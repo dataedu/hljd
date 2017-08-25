@@ -6,39 +6,72 @@
     <include
         android:id="@+id/layout_top"
         layout="@layout/core_title_back" />
-	
+
+	<com.dk.mp.core.widget.ErrorLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/error_layout"
+		android:gravity="center_horizontal">
+
+	</com.dk.mp.core.widget.ErrorLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="5dip"
         android:orientation="vertical"
         android:background="@color/main_bg">
+
         <RelativeLayout
              android:id="@+id/mytroublshooting"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@drawable/tro_blue_entry_style">
-	        <LinearLayout
-	            android:id="@+id/mytroublshooting2"
-	            android:layout_height="match_parent"
-	            android:layout_width="wrap_content"
-	            android:layout_centerHorizontal="true"
-	            android:gravity="center">
-	            <ImageView
-	                android:src="@drawable/my_malfunction"
-	                android:layout_width="40dp"
-	                android:layout_height="40dp"/>
-	            <TextView
-	                android:id="@+id/mytroublshooting_text2"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:textSize="17sp"
-	                android:text="跟踪报修"
-	                android:layout_marginLeft="15dp"
-	                android:textColor="@android:color/white"/>
-	        </LinearLayout>
-	         <TextView
+
+			<LinearLayout
+				android:id="@+id/mytroublshooting2"
+				android:layout_height="match_parent"
+				android:layout_width="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:gravity="center"
+				android:orientation="vertical">
+				<ImageView
+					android:src="@drawable/my_malfunction"
+					android:layout_width="40dp"
+					android:layout_height="40dp"/>
+				<TextView
+					android:id="@+id/mytroublshooting_text2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="17sp"
+					android:layout_marginTop="20dp"
+					android:text="跟踪报修（0）"
+					android:textColor="@android:color/white"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:visibility="gone"
+				android:id="@+id/mytroublshooting3"
+				android:layout_height="match_parent"
+				android:layout_width="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:orientation="horizontal"
+				android:gravity="center">
+				<ImageView
+					android:src="@drawable/my_malfunction"
+					android:layout_width="40dp"
+					android:layout_height="40dp"/>
+				<TextView
+					android:id="@+id/mytroublshooting_text3"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="17sp"
+					android:text="跟踪报修（0）"
+					android:layout_marginLeft="15dp"
+					android:textColor="@android:color/white"/>
+			</LinearLayout>
+	        <!-- <TextView
 	                android:id="@+id/mytroublshooting_text"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
@@ -46,7 +79,7 @@
 	                android:text="（0）"
 	                android:textColor="@android:color/white"
 	                android:layout_toRightOf="@+id/mytroublshooting2"
-	                android:layout_centerVertical="true"/>
+	                android:layout_centerVertical="true"/>-->
         </RelativeLayout>
         
         <RelativeLayout
@@ -70,7 +103,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:textSize="17sp"
-	                android:layout_marginLeft="27dp"
+	                android:layout_marginLeft="15dp"
 	                android:text="待我审批"
 	                android:textColor="@android:color/white"/>
 	        </LinearLayout>
@@ -84,26 +117,57 @@
                 android:layout_toRightOf="@+id/awaiting_approval2"
 	            android:layout_centerVertical="true"/>
         </RelativeLayout>
-        <LinearLayout
+
+        <RelativeLayout
             android:id="@+id/addmalfunction"
             android:layout_height="0dp"
             android:layout_width="match_parent"
             android:layout_weight="1"
-            android:layout_marginTop="0dip"
-            android:background="@drawable/tro_gre_entry_style"
-            android:gravity="center">
-             <ImageView
-                android:src="@drawable/add_malfunction"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
-              <TextView
-                android:id="@+id/addmalfunction_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:text="申请报修"
-                android:layout_marginLeft="15dp"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
+            android:background="@drawable/tro_gre_entry_style">
+
+			<LinearLayout
+				android:visibility="visible"
+				android:id="@+id/addmalfunction2"
+				android:layout_height="match_parent"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
+				android:gravity="center">
+				<ImageView
+					android:src="@drawable/add_malfunction"
+					android:layout_width="40dp"
+					android:layout_height="40dp"/>
+				<TextView
+					android:id="@+id/addmalfunction_text2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="17sp"
+					android:text="申请报修"
+					android:layout_marginTop="20dp"
+					android:textColor="@android:color/white"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:visibility="gone"
+				android:id="@+id/addmalfunction3"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_centerHorizontal="true"
+				android:gravity="center"
+				android:orientation="horizontal">
+
+				<ImageView
+					android:src="@drawable/add_malfunction"
+					android:layout_width="40dp"
+					android:layout_height="40dp"/>
+				<TextView
+					android:id="@+id/addmalfunction_text3"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="17sp"
+					android:text="申请报修"
+					android:layout_marginLeft="15dp"
+					android:textColor="@android:color/white"/>
+			</LinearLayout>
+		</RelativeLayout>
     </LinearLayout>
 </LinearLayout>

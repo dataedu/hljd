@@ -75,25 +75,22 @@ public class GzbxTabActivity extends MyActivity{
                 @Override
                 public void onSuccess(JSONObject result) {
                     try {
-                        if (result.getInt("code") != 200){
-                            showMessage(getString(R.string.data_error));
-                        }else {
+                        if (result.getInt("code") == 200){
+
                             int wCount = (Integer) result.getJSONObject("data").get("totalCount");
                             mTabLayout.getTabAt(0).setText("未处理（"+wCount+")");
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        showMessage(getString(R.string.data_error));
+//                        showMessage(getString(R.string.data_error));
                     }
                 }
 
                 @Override
                 public void onError(VolleyError error) {
-                    showMessage(getString(R.string.data_error));
+//                    showMessage(getString(R.string.data_error));
                 }
             });
-        }else {
-            showErrorMsg(getString(R.string.net_no2));
         }
     }
 

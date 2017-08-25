@@ -28,7 +28,7 @@
             style="@style/txt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@color/bg" />
+            android:background="@color/white" />
     </ScrollView>
 
     <com.dk.mp.core.widget.ErrorLayout

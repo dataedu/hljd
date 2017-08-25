@@ -59,6 +59,10 @@ public class LibrarySearchActivity extends MyActivity implements IXListViewListe
 
 		errorLayout = (ErrorLayout) findViewById(R.id.error_layout);
 
+		if (!DeviceUtil.checkNet()){
+			errorLayout.setErrorType(ErrorLayout.NETWORK_ERROR);
+		}
+
 		mListView = (XListView) findViewById(R.id.listView);
 		mListView.hideHeader();
 		mListView.hideFooter();

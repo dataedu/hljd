@@ -58,6 +58,7 @@ public class CardMainActivity extends MyActivity implements OnItemClickListener 
 		adapter = new MonthAdapter(context);
 		listView.setAdapter(adapter);
 
+		//退出账号记得清空数据
 		if (h.getValue("card_money") != null) {
 			money.setText(h.getValue("card_money") + "元");
 			money.setTextSize(50);
@@ -118,34 +119,35 @@ public class CardMainActivity extends MyActivity implements OnItemClickListener 
 							adapter.clean();
 						}else{
 							errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
-							CardInfo cardInfo = new Gson().fromJson(result.getJSONObject("data").toString(),CardInfo.class);
-							if (cardInfo != null){
-								if (cardInfo.getMoney() != null) {
-									double f = Double.parseDouble(cardInfo.getMoney());
-									BigDecimal bg = new BigDecimal(f);
-									double f1 = bg.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+							if(result.getString("data").toString() != "null" && result.getString("data").toString() != null){
+								CardInfo cardInfo = new Gson().fromJson(result.getJSONObject("data").toString(),CardInfo.class);
+								if (cardInfo != null){
+									if (cardInfo.getMoney() != null) {
+										double f = Double.parseDouble(cardInfo.getMoney());
+										BigDecimal bg = new BigDecimal(f);
+										double f1 = bg.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
 
-									money.setText(f1 + "元");
-									money.setTextSize(50);
-									h.setValue("card_money", f1+"");
+										money.setText(f1 + "元");
+										money.setTextSize(50);
+										h.setValue("card_money", f1+"");
+									}else {
+										money.setText("__");
+										money.setTextSize(12);
+									}
+
+									name.setText("持卡人：" + h.getUser().getUserName());
+									cardNo.setText("卡号：" + cardInfo.getCardNo());
+
+									h.setValue("card_no", cardInfo.getCardNo());
 								}else {
 									money.setText("__");
 									money.setTextSize(12);
+									name.setText("持卡人：" + "__");
+									cardNo.setText("卡号：" + "__");
+
+									errorLayout.setErrorType(ErrorLayout.NODATA);
+									adapter.clean();
 								}
-
-
-								name.setText("持卡人：" + h.getUser().getUserName());
-								cardNo.setText("卡号：" + cardInfo.getCardNo());
-
-								h.setValue("card_no", cardInfo.getCardNo());
-							}else {
-								money.setText("__");
-								money.setTextSize(12);
-								name.setText("持卡人：" + "__");
-								cardNo.setText("卡号：" + "__");
-
-								errorLayout.setErrorType(ErrorLayout.NODATA);
-								adapter.clean();
 							}
 						}
 					}catch (Exception e){

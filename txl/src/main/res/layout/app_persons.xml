@@ -6,27 +6,24 @@
     android:background="#f4f4f4"
     android:id="@+id/mdialog">
 
-    <include
-        android:id="@+id/title_bar"
-        layout="@layout/core_title_back"></include>
-
-    <com.dk.mp.core.widget.ErrorLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:id="@+id/error_layout"
-        android:gravity="center"
-        android:layout_below="@id/title_bar"/>
-
-
     <LinearLayout
         android:id="@+id/bm_lin"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
         android:background="@color/white"
-        android:elevation="1dp"
-        android:layout_below="@id/title_bar">
+        android:elevation="1dp">
+
+        <include
+            android:id="@+id/title_bar"
+            layout="@layout/core_title_back"></include>
+
+        <com.dk.mp.core.widget.ErrorLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:id="@+id/error_layout"
+            android:gravity="center_horizontal"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
@@ -46,7 +43,6 @@
             android:background="@color/linecolor"
             />
     </LinearLayout>
-
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

@@ -50,7 +50,11 @@ public class HeaderView {
 
     public void init(final View view, final Context context){
         this.view = view;
-        slideList.add(new SlideNews("1","http://default","移动校园,老师学生的好帮手","res://com.dk.mp.zjhy/"+ R.mipmap.banner_def,null));
+        slideList.add(new SlideNews("1","http://default","移动校园,老师学生的好帮手","res://com.dk.mp.zjhy/"+ R.mipmap.hnjd_a,null));
+        slideList.add(new SlideNews("2","http://default","移动校园,老师学生的好帮手","res://com.dk.mp.zjhy/"+ R.mipmap.hnjd_b,null));
+        slideList.add(new SlideNews("3","http://default","移动校园,老师学生的好帮手","res://com.dk.mp.zjhy/"+ R.mipmap.hnjd_c,null));
+        slideList.add(new SlideNews("4","http://default","移动校园,老师学生的好帮手","res://com.dk.mp.zjhy/"+ R.mipmap.hnjd_d,null));
+
         mLoopViewPager = (RollPagerView) view.findViewById(R.id.loop_view_pager);
         mLoopViewPager.setPlayDelay(3000);
         mLoopAdapter = new TestLoopAdapter(mLoopViewPager);
@@ -71,9 +75,10 @@ public class HeaderView {
 //            public void onPageScrollStateChanged(int state) {}
 //        });
         this.context = context;
-       getData();
+
+//       getData();
         //注册网络状态监听
-        BroadcastUtil.registerReceiver(context, mRefreshBroadcastReceiver, new String[]{"ref_headerview"});
+//        BroadcastUtil.registerReceiver(context, mRefreshBroadcastReceiver, new String[]{"ref_headerview"});
     }
 
     private BroadcastReceiver mRefreshBroadcastReceiver = new BroadcastReceiver() {
@@ -125,7 +130,7 @@ public class HeaderView {
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 //            view.setScaleType(ImageView.ScaleType.FIT_XY);
             view.setImageURI(Uri.parse(slideList.get(position).getImage()));
-            view.setOnClickListener(new View.OnClickListener() {
+            /*view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context,NewsDetailActivity.class);
@@ -141,7 +146,7 @@ public class HeaderView {
                     ActivityCompat.startActivity((Activity) context,intent,options.toBundle());
                     ((Activity) context).overridePendingTransition(com.dk.mp.xxxw.R.anim.slide_up, com.dk.mp.xxxw.R.anim.scale_down);
                 }
-            });
+            });*/
 
             GenericDraweeHierarchyBuilder builder = new GenericDraweeHierarchyBuilder(context.getResources());
             GenericDraweeHierarchy hierarchy = builder

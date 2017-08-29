@@ -15,7 +15,7 @@ public class User {
 	private String classId;//班级id
 	private String departName;//院系名称
 	private String departId;//院系id
-	private String roles;//权限
+	private String role;//权限
 	private List<App> apps;
 	private String birthday;
 
@@ -115,12 +115,12 @@ public class User {
 		this.departId = departId;
 	}
 
-	public String getRoles() {
-		return roles;
+	public String getRole() {
+		return role;
 	}
 
-	public void setRoles(String roles) {
-		this.roles = roles;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public List<App> getApps() {

@@ -171,6 +171,7 @@ public class AddMalfunctionActivity extends MyActivity{
 							public void run() {
 								ok.setEnabled(true);
 								showMessage("提交成功");
+								BroadcastUtil.sendBroadcast(mContext, "com.test.action.refresh");
 								onBackPressed();
 							}
 						},1500);

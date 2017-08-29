@@ -115,8 +115,9 @@ public class CardMainActivity extends MyActivity implements OnItemClickListener 
 				public void onSuccess(JSONObject result) {
 					try {
 						if (result.getInt("code") != 200) {
-							errorLayout.setErrorType(ErrorLayout.DATAFAIL);
-							adapter.clean();
+//							errorLayout.setErrorType(ErrorLayout.DATAFAIL);
+//							adapter.clean();
+							datafail();
 						}else{
 							errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 							if(result.getString("data").toString() != "null" && result.getString("data").toString() != null){
@@ -148,24 +149,43 @@ public class CardMainActivity extends MyActivity implements OnItemClickListener 
 									errorLayout.setErrorType(ErrorLayout.NODATA);
 									adapter.clean();
 								}
+							}else {
+								errorLayout.setErrorType(ErrorLayout.NODATA);
+								adapter.clean();
 							}
 						}
 					}catch (Exception e){
 						e.printStackTrace();
-						errorLayout.setErrorType(ErrorLayout.DATAFAIL);
-						adapter.clean();
+						datafail();
 					}
 				}
 
 				@Override
 				public void onError(VolleyError error) {
-					adapter.clean();
-					errorLayout.setErrorType(ErrorLayout.DATAFAIL);
+//					adapter.clean();
+//					errorLayout.setErrorType(ErrorLayout.DATAFAIL);
+					datafail();
 				}
 			});
 		}else{
+			if(h.getValue("card_money") != null){
+				errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
+				showMessage(getReString(R.string.net_no2));
+			}else {
+				adapter.clean();
+				errorLayout.setErrorType(ErrorLayout.NETWORK_ERROR);
+			}
+
+		}
+	}
+
+	private void datafail(){
+		if(h.getValue("card_money") != null){
+			errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
+			showMessage(getReString(R.string.data_fail));
+		}else {
 			adapter.clean();
-			errorLayout.setErrorType(ErrorLayout.NETWORK_ERROR);
+			errorLayout.setErrorType(ErrorLayout.DATAFAIL);
 		}
 	}
 

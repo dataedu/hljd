@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">湖南机电</string>
 
-
     <!--<string name="rootUrl">http://ydoa.czlgj.com:9064/ydxy/</string>-->
     <!--<string name="rootUrl">http://192.168.3.110:8082/mp-lgj/</string>-->
     <!--<string name="uploadUrl">http://192.168.3.14:8081/stargate/</string>-->
 
-     <string name="rootUrl">http://192.168.1.155:9120/mp_hnjd/</string>
+    <string name="rootUrl">http://yd.hnjdzy.net:82/hnjd/</string>
+     <!--<string name="rootUrl">http://192.168.1.155:9120/mp_hnjd/</string>-->
 
     <!--<string name="rootUrl">http://192.168.3.110:8088/mp-hnjd/</string>-->
     <!--<string name="rootUrl">http://192.168.3.168:8085/mp-hnjd/</string>-->

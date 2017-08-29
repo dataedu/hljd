@@ -104,6 +104,7 @@ public class LibrarySearchActivity extends MyActivity implements IXListViewListe
 	 * @return List<App>
 	 */
 	public void query() {
+		list.clear();
 		errorLayout.setErrorType(ErrorLayout.LOADDATA);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("key", searchKeywords.getText().toString());

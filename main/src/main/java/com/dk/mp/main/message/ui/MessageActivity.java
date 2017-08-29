@@ -20,6 +20,7 @@ import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
 import com.dk.mp.core.util.AdapterInterface;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
+import com.dk.mp.core.util.DeviceUtil;
 import com.dk.mp.core.util.StringUtils;
 import com.dk.mp.core.view.MyListView;
 import com.dk.mp.main.R;
@@ -153,55 +154,60 @@ public class MessageActivity extends MyActivity {
 	}
 
 	private void initDatas() {
-		if (brithdayMess != null) {
-			mList.add(brithdayMess);
-		}
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("pageNo", mListView.pageNo);
-		HttpUtil.getInstance().postJsonObjectRequest("apps/message/list", map, new HttpListener<JSONObject>() {
-			@Override
-			public void onSuccess(JSONObject result) {
-				if (result.optInt("code") == 200){//成功返回数据
-					try {
-						List<MessageEntity> persionList = getGson().fromJson(result.getJSONArray("data").toString(),new TypeToken<List<MessageEntity>>(){}.getType());
+		if (DeviceUtil.checkNet()){
+			if (brithdayMess != null) {
+				mList.add(brithdayMess);
+			}
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("pageNo", mListView.pageNo);
+			HttpUtil.getInstance().postJsonObjectRequest("apps/message/list", map, new HttpListener<JSONObject>() {
+				@Override
+				public void onSuccess(JSONObject result) {
+					if (result.optInt("code") == 200){//成功返回数据
+						try {
+							List<MessageEntity> persionList = getGson().fromJson(result.getJSONArray("data").toString(),new TypeToken<List<MessageEntity>>(){}.getType());
 
-						if (persionList == null){
-							mListView.error(MyListView.Error.OnError);
-						} else if (persionList.size() == 0) {
-							if (brithdayMess == null) {
-								mListView.error(MyListView.Error.NoDatas);
+							if (persionList == null){
+								mListView.error(MyListView.Error.OnError);
+							} else if (persionList.size() == 0) {
+								if (brithdayMess == null) {
+									mListView.error(MyListView.Error.NoDatas);
+								} else {
+									mListView.flish();
+								}
 							} else {
+								if (mListView.pageNo == 1) {
+									mList.clear();
+									if (brithdayMess != null) {
+										mList.add(brithdayMess);
+									}
+								}
+								for(MessageEntity me : persionList) {
+									Message ma = new Message();
+									ma.setAction(me.getApp());
+									ma.setContent(me.getContent());
+									ma.setTime(me.getTime());
+									ma.setParam(me.getParam().getUrl());
+									ma.setTitle(me.getTitle());
+									mList.add(ma);
+								}
 								mListView.flish();
 							}
-						} else {
-							if (mListView.pageNo == 1) {
-								mList.clear();
-								if (brithdayMess != null) {
-									mList.add(brithdayMess);
-								}
-							}
-							for(MessageEntity me : persionList) {
-								Message ma = new Message();
-								ma.setAction(me.getApp());
-								ma.setContent(me.getContent());
-								ma.setTime(me.getTime());
-								ma.setParam(me.getParam().getUrl());
-								ma.setTitle(me.getTitle());
-								mList.add(ma);
-							}
-							mListView.flish();
+						} catch (JSONException e) {
+							mListView.error(MyListView.Error.NoDatas);
 						}
-					} catch (JSONException e) {
-						mListView.error(MyListView.Error.NoDatas);
 					}
 				}
-			}
 
-			@Override
-			public void onError(VolleyError error) {
-				mListView.error(MyListView.Error.NoDatas);
-			}
-		});
+				@Override
+				public void onError(VolleyError error) {
+					mListView.error(MyListView.Error.NoDatas);
+				}
+			});
+		}else {
+			mListView.error(MyListView.Error.NoNetwork);
+		}
+
 	}
 
 	@Override

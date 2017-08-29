@@ -35,6 +35,7 @@
 				android:layout_width="wrap_content"
 				android:layout_centerHorizontal="true"
 				android:gravity="center"
+				android:visibility="visible"
 				android:orientation="vertical">
 				<ImageView
 					android:src="@drawable/my_malfunction"
@@ -55,8 +56,8 @@
 				android:id="@+id/mytroublshooting3"
 				android:layout_height="match_parent"
 				android:layout_width="wrap_content"
-				android:layout_centerHorizontal="true"
 				android:orientation="horizontal"
+				android:layout_marginLeft="100dp"
 				android:gravity="center">
 				<ImageView
 					android:src="@drawable/my_malfunction"
@@ -90,10 +91,10 @@
             android:background="@drawable/tro_yel_entry_style"
             android:visibility="gone">
 	        <LinearLayout
-	            android:id="@+id/awaiting_approval2"
+				android:layout_marginLeft="100dp"
+				android:id="@+id/awaiting_approval2"
 	            android:layout_height="match_parent"
 	            android:layout_width="wrap_content"
-	            android:layout_centerHorizontal="true"
 	            android:gravity="center">
 	            <ImageView
 	                android:src="@drawable/my_process"
@@ -149,9 +150,9 @@
 			<LinearLayout
 				android:visibility="gone"
 				android:id="@+id/addmalfunction3"
-				android:layout_width="match_parent"
+				android:layout_width="wrap_content"
 				android:layout_height="match_parent"
-				android:layout_centerHorizontal="true"
+				android:layout_marginLeft="100dp"
 				android:gravity="center"
 				android:orientation="horizontal">
 

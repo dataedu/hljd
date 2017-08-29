@@ -74,7 +74,7 @@ public class UserInfoActivity extends MyActivity{
             username.setText(StringUtils.checkEmpty(user.getUserName()));
             depart.setText(StringUtils.checkEmpty(user.getDepartName()));
             xh.setText(StringUtils.checkEmpty(user.getUserId()));
-            if("teacher".equals(user.getRoles())){
+            if("teacher".equals(user.getRole()) || "1".equals(user.getRole())){
                 xhorgh.setText("工号");
                 yxorbm.setText("部门");
             }else{

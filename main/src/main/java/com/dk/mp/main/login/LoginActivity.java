@@ -222,6 +222,9 @@ public class LoginActivity extends MyActivity implements View.OnClickListener{
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (psw.getText().toString().equals(",") || psw.getText().toString().equals("，") ){
+                psw.setText("");
+            }
 
         }
 

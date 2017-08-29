@@ -127,7 +127,7 @@ public class MyListView extends SwipeRefreshLayout {
             }
             case NoDatas :{
                 zwsj_icon.setImageResource(R.mipmap.nodata_n);
-                zwsj_text.setText(context.getString(R.string.nodata));
+                zwsj_text.setText(context.getString(R.string.nomsg));
                 break;
             }
             case OnError :{

@@ -167,9 +167,9 @@ public class MyTroublshootingProcessActivity extends MyActivity implements OnCli
 							tro_end_repair.setText(R.string.tro_end_repair);
 							ProcessInfo pinfo = new ProcessInfo();
 							pinfo.setId("0");
-							pinfo.setName(m.getName());
+							pinfo.setName("现教中心");
 							pinfo.setStatus("-1");
-							pinfo.setStatusname("待提报人员反馈");
+							pinfo.setStatusname("已维修，待提报人员反馈");
 							pinfo.setTime(list.get(list.size()-1).getTime());
 							list.add(pinfo);
 							mAdapter = new MyProcessAdapter(context, list);

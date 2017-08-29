@@ -178,12 +178,12 @@ public class TroublshootingMainActivity extends MyActivity implements OnClickLis
 				if("0".equals(type)){
 					awaiting_approval.setVisibility(View.GONE);
 
-					mytroublshooting2.setVisibility(View.GONE);
-					mytroublshooting3.setVisibility(View.VISIBLE);
-					mytroublshooting_text3.setText("跟踪报修（"+gzbx+"）");
+					mytroublshooting2.setVisibility(View.VISIBLE);
+					mytroublshooting3.setVisibility(View.GONE);
+					mytroublshooting_text2.setText("跟踪报修（"+gzbx+"）");
 
-					addmalfunction2.setVisibility(View.GONE);
-					addmalfunction3.setVisibility(View.VISIBLE);
+					addmalfunction2.setVisibility(View.VISIBLE);
+					addmalfunction3.setVisibility(View.GONE);
 				}else{
 					awaiting_approval.setVisibility(View.VISIBLE);
 					awaiting_approval_text.setText("（"+dwsp+"）");
@@ -195,7 +195,6 @@ public class TroublshootingMainActivity extends MyActivity implements OnClickLis
 					addmalfunction2.setVisibility(View.GONE);
 					addmalfunction3.setVisibility(View.VISIBLE);
 				}
-				
 				break;
 			case 2:
 				showMessage(getString(R.string.data_error));

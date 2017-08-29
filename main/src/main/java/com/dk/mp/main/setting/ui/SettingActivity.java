@@ -5,17 +5,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.SwitchCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dk.mp.core.dialog.AlertDialog;
 import com.dk.mp.core.entity.User;
@@ -228,7 +225,7 @@ public class SettingActivity extends MyActivity{
             xsxx.setVisibility(View.VISIBLE);
             xm.setText(user.getUserName());
             String departname = "null".equals(user.getDepartName())||user.getDepartName() == null ? "":user.getDepartName();
-            if("1".equals(user.getRoles())){
+            if("teacher".equals(user.getRole()) || "1".equals(user.getRole())){
                 bmhyx.setText("部门："+departname);
             }else{
                 bmhyx.setText("院系："+departname);

@@ -15,6 +15,7 @@
 
     <string name="net_no2">网络异常哦</string>
     <string name="nodata">还没有数据哦</string>
+    <string name="nomsg">还没有消息哦</string>
     <string name="data_fail">服务异常哦</string>
     <string name="login_fail">登录失败</string>
     <string name="searchnodata">没有搜索到哦</string>

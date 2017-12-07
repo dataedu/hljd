@@ -1,28 +1,25 @@
 package com.dk.mp.gzbx.ui;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.widget.NestedScrollView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
+import com.bumptech.glide.Glide;
 import com.dk.mp.core.entity.GsonData;
 import com.dk.mp.core.entity.JsonData;
 import com.dk.mp.core.http.HttpUtil;
@@ -35,11 +32,17 @@ import com.dk.mp.gzbx.R;
 import com.dk.mp.gzbx.entity.Malfunction;
 import com.dk.mp.gzbx.entity.ProcessInfo;
 import com.dk.mp.gzbx.util.StringUtil;
+import com.dk.mp.gzbx.view.MyListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 故障报修推送流程页面
@@ -52,7 +55,7 @@ public class PushProcessActivity extends MyActivity implements OnClickListener{
 	private TextView textView1,textView2;
 	private TextView status;
 	private TextView address,device,des;
-	private ListView listview;
+	private MyListView listview;
 	private LinearLayout bottom_view;
 	private LinearLayout bottom_left;
 	private LinearLayout bottom_right;
@@ -67,6 +70,10 @@ public class PushProcessActivity extends MyActivity implements OnClickListener{
 	private String alertLeftType="";//左侧弹出框弹出类型
 	private String alertRightMsg="";//右侧弹出框标题
 	private String alertRightType="";//右侧弹出框弹出类型
+	private LinearLayout bximgs;
+	private NestedScrollView myscrollview;
+	private ArrayList<String> images = new ArrayList<>();
+
 
 	@Override
 	protected int getLayoutID() {
@@ -85,6 +92,8 @@ public class PushProcessActivity extends MyActivity implements OnClickListener{
 	}
 	
 	private void findView(){
+		myscrollview = (NestedScrollView)findViewById(R.id.mScrollview);
+		bximgs= (LinearLayout) findViewById(R.id.bximgs);
 		Intent intent = getIntent();
 		m = (Malfunction) intent.getSerializableExtra("malfunction");
 		textView1 = (TextView) findViewById(R.id.textView1);
@@ -94,7 +103,7 @@ public class PushProcessActivity extends MyActivity implements OnClickListener{
 		address = (TextView) findViewById(R.id.address);
 		device = (TextView) findViewById(R.id.device);
 		des = (TextView) findViewById(R.id.des);
-		listview = (ListView) findViewById(R.id.listview);
+		listview = (MyListView) findViewById(R.id.listview);
 		bottom_view = (LinearLayout) findViewById(R.id.bottom_view);
 		bottom_left = (LinearLayout) findViewById(R.id.bottom_left);
 		bottom_right = (LinearLayout) findViewById(R.id.bottom_right);
@@ -111,6 +120,35 @@ public class PushProcessActivity extends MyActivity implements OnClickListener{
 		address.setText(m.getAddress());
 		device.setText(m.getDevice());
 		des.setText(m.getDes());
+
+		int screenWidth = DeviceUtil.getScreenWidth(mContext)-DeviceUtil.dip2px(context,20);
+		int mHeight = screenWidth/16*9;
+		if(m.getTps() != null) {
+			for (int i = 0; i < m.getTps().size(); i++) {
+				ImageView imageView = new ImageView(this);
+				LinearLayout.LayoutParams viewPream = new LinearLayout.LayoutParams(
+						screenWidth,
+						mHeight
+				);//设置布局控件的属性
+				viewPream.topMargin = DeviceUtil.dip2px(this, 10);
+				viewPream.rightMargin = DeviceUtil.dip2px(this, 10);
+				viewPream.leftMargin = DeviceUtil.dip2px(this, 10);
+				imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+				Glide.with(mContext).load(getUrl(m.getTps().get(i))).into(imageView);//填充图片
+				bximgs.addView(imageView, viewPream);
+				images.add(getUrl(m.getTps().get(i)));
+				final int position = i;
+				imageView.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						Intent intent = new Intent(mContext, ImagePreviewActivity.class);
+						intent.putExtra("index", position);
+						intent.putStringArrayListExtra("list", images);
+						startActivity(intent);
+					}
+				});
+			}
+		}
 	}
 	
 	/**
@@ -211,9 +249,11 @@ public class PushProcessActivity extends MyActivity implements OnClickListener{
 							bottom_view.setVisibility(View.GONE);
 						}
 					}
+				myscrollview.scrollTo(0,0);
 				break;
 			case 2:
 				showMessage(getString(R.string.data_error));
+				myscrollview.scrollTo(0,0);
 				break;
 			case 3:
 				finish();
@@ -394,5 +434,17 @@ public class PushProcessActivity extends MyActivity implements OnClickListener{
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
-	
+
+	/**
+	 * 处理url
+	 * @param url
+	 * @return
+	 */
+	private String getUrl(String url) {
+		if (url.startsWith("http://") || url.startsWith("https://")) {
+			return url;
+		} else {
+			return getReString(R.string.rootUrl) + url;
+		}
+	}
 }

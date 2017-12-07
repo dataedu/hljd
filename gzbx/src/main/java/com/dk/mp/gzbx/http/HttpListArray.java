@@ -39,6 +39,14 @@ public class HttpListArray {
                     m.setDes(jo.getString("desc"));
                     m.setStatusname(jo.getString("status"));
                     m.setTime(jo.getString("time"));
+                    List<String> tps = new ArrayList<>();
+                    JSONArray jaa = jo.optJSONArray("tps");
+                    if(jaa != null) {
+                        for (int j = 0; j < jaa.length(); j++) {
+                            tps.add((String) jaa.get(j));
+                        }
+                        m.setTps(tps);
+                    }
                     list.add(m);
                 }
                 mo.put("list", list);
@@ -73,6 +81,14 @@ public class HttpListArray {
                     m.setDes(jo.getString("desc"));
                     m.setStatusname(jo.getString("status"));
                     m.setTime(jo.getString("time"));
+                    List<String> tps = new ArrayList<>();
+                    JSONArray jaa = jo.optJSONArray("tps");
+                    if(jaa != null) {
+                        for (int j = 0; j < jaa.length(); j++) {
+                            tps.add((String) jaa.get(j));
+                        }
+                        m.setTps(tps);
+                    }
                     list.add(m);
                 }
                 mo.put("list", list);

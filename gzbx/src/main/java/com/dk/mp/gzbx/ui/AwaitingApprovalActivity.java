@@ -1,10 +1,5 @@
 package com.dk.mp.gzbx.ui;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -22,6 +17,11 @@ import com.dk.mp.gzbx.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AwaitingApprovalActivity extends MyTabActivity {
 	public static final String ACTION_REFRESH = "com.test.action.refresh.tab";

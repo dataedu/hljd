@@ -1,10 +1,8 @@
 package com.dk.mp.gzbx.ui;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
 import android.support.design.widget.TabLayout;
 
 import com.android.volley.VolleyError;
@@ -75,7 +73,7 @@ public class DwspTabActivity extends MyActivity{
                     try {
                         if (result.getInt("code") == 200){
                             int wCount = (Integer) result.getJSONObject("data").get("totalCount");
-                            mTabLayout.getTabAt(0).setText("待我审批（"+wCount+")");
+                            mTabLayout.getTabAt(0).setText("待我审批（"+wCount+"）");
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -98,7 +96,7 @@ public class DwspTabActivity extends MyActivity{
 
     private void initViewPager(){
         List<String>  titles = new ArrayList<>();
-        titles.add("待我审批（0)");
+        titles.add("待我审批（0）");
         titles.add("我已审批");
 
         for(int i=0;i<titles.size();i++){

@@ -22,6 +22,7 @@ public class Malfunction implements Serializable{
 	private String address;//地点
 	private String device;//设备
 	private String des;//问题描述
+	private List<String> tps;//图片
 	
 	private List<ProcessInfo> list;//流程信息
 	public String getId() {
@@ -84,7 +85,12 @@ public class Malfunction implements Serializable{
 	public void setStatusname(String statusname) {
 		this.statusname = statusname;
 	}
-	
-	
 
+	public List<String> getTps() {
+		return tps;
+	}
+
+	public void setTps(List<String> tps) {
+		this.tps = tps;
+	}
 }

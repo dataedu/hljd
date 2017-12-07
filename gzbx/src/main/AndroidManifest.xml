@@ -57,6 +57,9 @@
             android:screenOrientation="portrait"
             android:label="待我审批"/>
 
+        <activity
+            android:name="com.dk.mp.gzbx.ui.ImagePreviewActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

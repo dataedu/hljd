@@ -6,7 +6,7 @@
     <!--<string name="uploadUrl">http://192.168.3.14:8081/</string>-->
 
     <!--<string name="rootUrl">http://ydoa.czlgj.com:9064/ydxy/</string>-->
-    <string name="rootUrl">http://yd.cjjs.cn/yd/</string>
+    <string name="rootUrl">http://192.168.3.163:8081/mp-hnjd/</string>
 
     <string name="uploadUrl">http://xg.czlgj.com/</string>
 

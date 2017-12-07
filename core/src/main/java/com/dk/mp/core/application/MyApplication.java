@@ -119,5 +119,4 @@ public class MyApplication extends Application{
         return animator;
     }
 
-
 }

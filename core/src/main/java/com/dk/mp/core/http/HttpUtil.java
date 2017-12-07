@@ -151,7 +151,7 @@ public class HttpUtil {
      * 上传图片
      */
     public void uploadImg(String url,List<File> files,okhttp3.Callback callback){
-        Logger.info("############ uploadImg Url = "+url);
+        Logger.info("############ uploadImg Url = "+getUrl(url));
         // mImgUrls为存放图片的url集合
 //        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
 //        for (int i = 0; i <files.size() ; i++) {
@@ -171,7 +171,7 @@ public class HttpUtil {
         RequestBody body = new MultipartBody.Builder().addFormDataPart("filename", files.get(0).getName(), fileBody).build();
 
         //构建请求
-        final okhttp3.Request request = new okhttp3.Request.Builder().url(url).post(body).build();
+        final okhttp3.Request request = new okhttp3.Request.Builder().url(getUrl(url)).post(body).build();
         okHttpClient.newCall(request).enqueue(callback);
     }
 
@@ -180,6 +180,24 @@ public class HttpUtil {
      */
     public void downloadFile(String url,okhttp3.Callback callback){
         okhttp3.Request request = new okhttp3.Request.Builder().url(url).build();
+        okHttpClient.newCall(request).enqueue(callback);
+    }
+
+    /**
+     * 上传单图
+     */
+    public void uploadImg2(String url,File file,okhttp3.Callback callback){
+        Logger.info("############ uploadImg Url = "+getUrl(url));
+        if(file == null){
+            return;
+        }
+
+        //创建RequestBody
+        RequestBody fileBody  = RequestBody.create(MediaType.parse(TYPE), file);
+        RequestBody body = new MultipartBody.Builder().addFormDataPart("filename", file.getName(), fileBody).build();
+
+        //构建请求
+        final okhttp3.Request request = new okhttp3.Request.Builder().url(getUrl(url)).post(body).build();
         okHttpClient.newCall(request).enqueue(callback);
     }
 

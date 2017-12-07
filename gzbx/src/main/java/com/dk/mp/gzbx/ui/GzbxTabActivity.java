@@ -1,13 +1,9 @@
 package com.dk.mp.gzbx.ui;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
 import android.support.design.widget.TabLayout;
-import android.view.View;
-import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.dk.mp.core.adapter.MyFragmentPagerAdapter;
@@ -78,7 +74,7 @@ public class GzbxTabActivity extends MyActivity{
                         if (result.getInt("code") == 200){
 
                             int wCount = (Integer) result.getJSONObject("data").get("totalCount");
-                            mTabLayout.getTabAt(0).setText("未处理（"+wCount+")");
+                            mTabLayout.getTabAt(0).setText("未处理（"+wCount+"）");
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -101,7 +97,7 @@ public class GzbxTabActivity extends MyActivity{
 
     private void initViewPager(){
         List<String> titles = new ArrayList<>();
-        titles.add("未处理（0)");
+        titles.add("未处理（0）");
         titles.add("已处理");
 
         for(int i=0;i<titles.size();i++){
